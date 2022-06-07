@@ -1,5 +1,4 @@
 const computerPlay = () => {
-    let RPS;
     const randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber === 0) {
         return "rock";
@@ -10,10 +9,11 @@ const computerPlay = () => {
     }
 }
 
+
+
 const playRound = (playerSelection, computerSelection) => {
     let computerPlay = computerSelection;
-    let playerSelect = playerSelection;
-    let playerPlay = playerSelect.toLowerCase();
+    let playerPlay = playerSelection.toLowerCase();
 
     if(computerPlay === "rock" && playerPlay === "paper") {
         return 'You Win! Paper beats Rock';
@@ -39,8 +39,28 @@ const playRound = (playerSelection, computerSelection) => {
 const game = () => {
     let computerScore = 0;
     let playerScore = 0;
+    let gameDraws = 0;
 
     for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("What do you choose?");
+        let computerSelection = computerPlay();
         let result = playRound(playerSelection, computerSelection);
+        console.log(result);
+
+        if (result.includes("Win")) {
+            playerScore++;
+        } else if (result.includes("Lose")) {
+            computerScore++;
+        } else {
+            gameDraws++;
+        }
+    }
+
+    if (playerScore === computerScore) {
+        return "The Final Result is: Draw!";
+    } else if (playerScore > computerScore) {
+        return "The Final Result is: You Win!";
+    } else {
+        return "The Final Result is: You Lose!";
     }
 }
