@@ -1,3 +1,7 @@
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorBtn = document.querySelector('#scissor');
+
 const computerPlay = () => {
     const randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber === 0) {
@@ -8,8 +12,6 @@ const computerPlay = () => {
         return "scissor";
     }
 }
-
-
 
 const playRound = (playerSelection, computerSelection) => {
     let computerPlay = computerSelection;
@@ -36,6 +38,25 @@ const playRound = (playerSelection, computerSelection) => {
     }
 }
 
+rockBtn.addEventListener('click', () => {
+    let playerSelection = "rock";
+    let computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection));
+});
+
+paperBtn.addEventListener('click', () => {
+    let playerSelection = "paper";
+    let computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection));
+});
+
+scissor.addEventListener('click', () => {
+    let playerSelection = "scissor";
+    let computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection));
+});
+
+/*
 const game = () => {
     let computerScore = 0;
     let playerScore = 0;
@@ -64,3 +85,4 @@ const game = () => {
         return "The Final Result is: You Lose!";
     }
 }
+*/
