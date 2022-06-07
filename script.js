@@ -1,6 +1,7 @@
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorBtn = document.querySelector('#scissor');
+const resultContainer = document.querySelector("#result");
 
 const computerPlay = () => {
     const randomNumber = Math.floor(Math.random() * 3);
@@ -38,32 +39,40 @@ const playRound = (playerSelection, computerSelection) => {
     }
 }
 
+
 rockBtn.addEventListener('click', () => {
-    let playerSelection = "rock";
+    /* const playerSelection = "rock";
     let computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
+    const result = document.createElement("h2");
+
+    result.textContent = playRound(playerSelection, computerSelection);
+    resultContainer.appendChild(result); */
 });
 
 paperBtn.addEventListener('click', () => {
-    let playerSelection = "paper";
+    /* let playerSelection = "paper";
     let computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
+    const result = document.createElement("h2");
+
+    result.textContent = playRound(playerSelection, computerSelection);
+    resultContainer.appendChild(result); */
 });
 
 scissor.addEventListener('click', () => {
-    let playerSelection = "scissor";
+    /* let playerSelection = "scissor";
     let computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
+    const result = document.createElement("h2");
+
+    result.textContent = playRound(playerSelection, computerSelection);
+    resultContainer.appendChild(result); */
 });
 
-/*
-const game = () => {
+function game() {
     let computerScore = 0;
     let playerScore = 0;
     let gameDraws = 0;
 
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("What do you choose?");
+    for (; playerScore === 5 || computerScore === 5;) {
         let computerSelection = computerPlay();
         let result = playRound(playerSelection, computerSelection);
         console.log(result);
@@ -85,4 +94,3 @@ const game = () => {
         return "The Final Result is: You Lose!";
     }
 }
-*/
