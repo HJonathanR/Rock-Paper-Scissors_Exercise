@@ -41,6 +41,7 @@ const playRound = (playerSelection, computerSelection) => {
 
 
 rockBtn.addEventListener('click', () => {
+    const playerSelection = "rock";
     /* const playerSelection = "rock";
     let computerSelection = computerPlay();
     const result = document.createElement("h2");
@@ -50,39 +51,30 @@ rockBtn.addEventListener('click', () => {
 });
 
 paperBtn.addEventListener('click', () => {
-    /* let playerSelection = "paper";
-    let computerSelection = computerPlay();
-    const result = document.createElement("h2");
-
-    result.textContent = playRound(playerSelection, computerSelection);
-    resultContainer.appendChild(result); */
+    const playerSelection = "paper";
+    
 });
 
 scissor.addEventListener('click', () => {
-    /* let playerSelection = "scissor";
-    let computerSelection = computerPlay();
-    const result = document.createElement("h2");
-
-    result.textContent = playRound(playerSelection, computerSelection);
-    resultContainer.appendChild(result); */
+    const playerSelection = "scissor";
+    game(playerSelection);
 });
 
-function game() {
+function game(playerSelection) {
+    let playerPlay = playerSelection;
     let computerScore = 0;
     let playerScore = 0;
     let gameDraws = 0;
+    
 
-    for (; playerScore === 5 || computerScore === 5;) {
-        let computerSelection = computerPlay();
-        let result = playRound(playerSelection, computerSelection);
-        console.log(result);
-
-        if (result.includes("Win")) {
+    while(computerScore <= 5 || playerScore <= 5) {
+        const resultRPS = playRound(playerPlay, computerPlay);
+        if (resultRPS.includes("Win")) {
             playerScore++;
-        } else if (result.includes("Lose")) {
+        } else if (resultRPS.includes("Lose")) {
             computerScore++;
         } else {
-            gameDraws++;
+            gameDraws++
         }
     }
 
