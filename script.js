@@ -17,8 +17,6 @@ const computerPlay = () => {
     }
 }
 
-
-
 const playRound = (playerSelection, computerSelection) => {
     let computerPlay = computerSelection;
     let playerPlay = playerSelection.toLowerCase();
@@ -63,7 +61,6 @@ const playRound = (playerSelection, computerSelection) => {
         resultMessage.textContent = message;
         resultContainer.appendChild(resultMessage);
     }
-
     return message;
 }
 
